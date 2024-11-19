@@ -1,0 +1,30 @@
+.outcaro
+{
+
+  padding: 5px;
+  
+}
+
+.caro
+{
+  width: 1510px;
+  height: 600px;
+  object-fit: cover;
+  border-radius: 3px;
+ 
+}
+
+.carousel-caption
+{
+   background-color: #FFFBE6;
+   color: #dde84c;
+   width: auto;
+   border-radius: 10px;
+   font-weight: 600;
+
+}
+.carousel-caption>h5{
+  color: #347928;
+  font-weight: 700;
+}
+
