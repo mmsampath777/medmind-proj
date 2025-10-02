@@ -1,38 +1,28 @@
 {
-  // 1. Explicitly defines the build process for both parts
   "builds": [
-    // Instructs Vercel to treat the public folder as static files
     {
       "src": "public/**",
       "use": "@vercel/static"
     },
-    // Instructs Vercel to treat the index.js in the api folder as a Node.js function
     {
       "src": "api/index.js",
       "use": "@vercel/node"
     }
   ],
-
-  // 2. Defines the routing rules
   "routes": [
-    // This serves API requests to your serverless function (which is essential for login)
     {
       "src": "/api/(.*)",
       "dest": "/api/index.js"
     },
-    // This serves static files (CSS, JS, images, etc.) from the public folder
     {
       "src": "/(.*\\.\\w+)", 
       "dest": "/public/$1" 
     },
-    // This serves the root URL (/) by directing it to index.html in the public folder
     {
       "src": "/", 
       "dest": "/public/index.html" 
     }
   ],
-  
-  // 3. Adds necessary CORS headers for your frontend-to-backend communication
   "headers": [
     {
       "source": "/(.*)",
