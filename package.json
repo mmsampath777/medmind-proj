@@ -1,23 +1,29 @@
 {
-  "name": "sih_website_1",
+  "name": "herbal-main",
   "version": "1.0.0",
-  "main": "item.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mmsampath777/medmind.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "@google/generative-ai": "^0.17.1",
-    "@tensorflow-models/mobilenet": "^2.1.1",
-    "axios": "^1.7.7",
-    "body-parser": "^1.20.2",
-    "cors": "^2.8.5",
-    "dotenv": "^16.4.5",
-    "express": "^4.19.2",
-    "multer": "^1.4.5-lts.1"
+  "bugs": {
+    "url": "https://github.com/mmsampath777/medmind/issues"
   },
-  "description": ""
+  "homepage": "https://github.com/mmsampath777/medmind#readme",
+  "description": "",
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.12.0",
+    "mongoose": "^8.9.3"
+  }
 }

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Concert+One&family=Laila:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://getbootstrap.com/docs/5.3/assets/css/docs.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&family=Playwrite+CU:wght@100..400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link
+      href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css"
+      rel="stylesheet"
+    />
+    <title>Medmind</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <link rel="icon" href="logo/logo.jpg" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/chat-style.css" />
+    <link rel="stylesheet" href="css/item.css">
+    <script type="importmap">
+      {
+        "imports": {
+          "@google/generative-ai": "https://esm.run/@google/generative-ai"
+        }
+      }
+    </script>
+    <script type="module" src="js/chatbot.js"></script>
+    <script type="text/javascript" src="js/comment.js">
+
+    </script>
+    <script type="text/javascript" src="js/search.js">
+
+    </script>
+  </head>
+  <style>
+    .container{
+        min-height: 100vh;
+        height: auto;
+    }
+    #bookmarks-container{
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        max-width: 1200px;
+        margin: 12px auto;
+        background-color: #fff;
+    }
+    .citem{
+        display: flex;
+        width: 90%;
+        max-width: 1000px;
+        background-color: #e5e6e2;
+        margin: 16px auto;
+        padding: 12px;
+        border-radius: 6px;
+        transition: all ease 0.5s;
+    }
+    .citem:hover{
+        background-color: #213500;
+        color: #fff;
+    }
+    .citemImage{
+        width: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .citemImage img{
+        width: 100%;
+    }
+    .citemDetails{
+        width: calc(100% - 250px);
+        padding: 12px;
+        font-size: medium;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .citem button{
+        border: none;
+        outline: none;
+        border-radius: 6px;
+        background-color: #588f00;
+        color: #fff;
+        padding: 6px 12px;
+    }
+    .details{
+        display: flex;
+        padding: 0 10px;
+    }
+    .citemDetails p{
+        max-width: 98%;
+        padding: 0;
+        margin: 0;
+        margin-bottom: 4px;
+        font-weight: 500;
+        text-overflow: ellipsis;
+    }
+    .filter{
+        width:400px;
+        margin: 12px;
+        margin-left: 0;
+        padding: 10px;
+        background-color: #fff;
+        color: #131f00;
+        font-family:"SUSE", sans-serif;
+    }
+    .fh{
+        font-size: larger;
+    }
+    .filter-section{
+        margin: 18px 0;
+    }
+    .filter-section p{
+        margin-bottom: 6px;
+        font-size: large;
+        font-weight: 600;
+    }
+    .filter button{
+        border: none;
+        background-color: #213500;
+        color: #fff;
+        padding: 6px 12px;
+        width: 100%;
+        border-radius: 6px;
+        font-size: larger;
+    }
+  </style>
+  <body>
+    <div class="header">
+      <nav>
+        <!-- Checkbox for toggling menu -->
+        <input type="checkbox" id="check">
+        <!-- Menu icon -->
+        <label for="check" class="checkbtn">
+          <i class="fas fa-bars"></i>
+        </label>
+
+        <label class="logo">Medmind</label>
+        
+        <img src="logo/logo.jpg" class="im">
+        <!-- Navigation links -->
+        <ul>
+          
+          <li><a class="active" href="index.html">Home</a></li>
+          <li><a href="index.html">ABOUT</a></li>
+          <li><a href="index.html">EXPLORE</a></li>
+          <li><a href="index.html">CONTACT</a></li>
+          <li><a href="index.html" >LOGIN</a></li>
+          <li><a href="index.html" >SIGNUP</a></li>
+          <li class="s1">
+                <input type="text" id="searchInput" placeholder="Search..." onkeyup="searchFunction()">
+                <ul id="searchResults"></ul>
+
+        </li>
+        </ul>
+
+      </nav>
+      <div style="background-color:#087a00;">
+      <a href="cart.html"
+      ><div id="bookmark"><i id="book" class="fa-regular fa-bookmark"></i></div
+    ></a>
+
+      </div>
+      </div>
+      <div class="nav2">
+        <a href="ayurveda.html" class="nav-link">Ayurveda</a>
+        <a href="yoga.html" class="nav-link" data-target="wrapper2">Yoga</a>
+        <a href="unani.html" class="nav-link" data-target="footer">Unani</a>
+        <a href="siddha.html" class="nav-link" data-target="wrapper4">Siddha</a>
+        <a href="allopathy.html" class="nav-link" data-target="wrapper4">Allopathy</a>
+      </div>
+    </div>
+    <div class="container">
+      <button class="chatbot-toggler">
+        <span class="material-symbols-outlined">
+          headset_mic
+          </span>
+        <span class="material-symbols-outlined">close</span>
+      </button>
+      <div class="chatbot">
+        <header>
+          <h2>Chatbot</h2>
+          <span class="close-btn material-symbols-outlined">close</span>
+        </header>
+        <ul class="chatbox">
+          <li class="chat incoming">
+            <span class="material-symbols-outlined">smart_toy</span>
+            <p>Hi there 👋<br>How can I help you today?</p>
+          </li>
+        </ul>
+        <div class="chat-input">
+          <textarea placeholder="Enter a message..." spellcheck="false" required></textarea>
+          <span id="send-btn" class="material-symbols-rounded">send</span>
+        </div>
+      </div>
+      <!--Chatbot End-->
+      <div class="details">
+        <div class="filter">
+            <strong class="fh">Filter Plants by Ayurveda&nbsp;<i class="fa-solid fa-filter"></i></strong>
+          
+            <!-- Filter by Dosha -->
+            <div class="filter-section">
+              <p>By Dosha</p>
+              <label><input type="checkbox" value="vata"> Vata</label>
+              <label><input type="checkbox" value="pitta"> Pitta</label>
+              <label><input type="checkbox" value="kapha"> Kapha</label>
+            </div>
+          
+            <!-- Filter by Rasa (Taste) -->
+            <div class="filter-section">
+              <p>By Rasa (Taste)</p>
+              <label><input type="checkbox" value="sweet"> Sweet (Madhura)</label>
+              <label><input type="checkbox" value="sour"> Sour (Amla)</label>
+              <label><input type="checkbox" value="salty"> Salty (Lavana)</label>
+              <label><input type="checkbox" value="bitter"> Bitter (Tikta)</label>
+              <label><input type="checkbox" value="pungent"> Pungent (Katu)</label>
+              <label><input type="checkbox" value="astringent"> Astringent (Kashaya)</label>
+            </div>
+          
+            <!-- Filter by Guna (Qualities) -->
+            <div class="filter-section">
+              <p>By Guna (Qualities)</p>
+              <label><input type="checkbox" value="light"> Light (Laghu)</label>
+              <label><input type="checkbox" value="heavy"> Heavy (Guru)</label>
+              <label><input type="checkbox" value="dry"> Dry (Ruksha)</label>
+              <label><input type="checkbox" value="oily"> Oily (Snigdha)</label>
+            </div>
+          
+            <!-- Filter by Virya (Potency) -->
+            <div class="filter-section">
+              <p>By Virya (Potency)</p>
+              <label><input type="checkbox" value="heating"> Heating (Ushna)</label>
+              <label><input type="checkbox" value="cooling"> Cooling (Shita)</label>
+            </div>
+          
+            <!-- Filter by Vipaka (Post-digestive effect) -->
+            <div class="filter-section">
+              <p>By Vipaka (Post-digestive effect)</p>
+              <label><input type="checkbox" value="sweet"> Sweet (Madhura)</label>
+              <label><input type="checkbox" value="sour"> Sour (Amla)</label>
+              <label><input type="checkbox" value="pungent"> Pungent (Katu)</label>
+            </div>
+          
+            <!-- Filter by Plant Part Used -->
+            <div class="filter-section">
+              <p>By Plant Part Used</p>
+              <label><input type="checkbox" value="root"> Root</label>
+              <label><input type="checkbox" value="leaf"> Leaf</label>
+              <label><input type="checkbox" value="stem"> Stem</label>
+              <label><input type="checkbox" value="flower"> Flower</label>
+              <label><input type="checkbox" value="fruit"> Fruit</label>
+              <label><input type="checkbox" value="seed"> Seed</label>
+            </div>
+          
+            <!-- Apply Filter Button -->
+            <button id="applyFilterBtn">Apply Filters</button>
+          </div>
+          
+        <div id="bookmarks-container">
+            <div class="citem">
+                <div class="citemImage">
+                    <img src="images/ashwagandha.jpeg">
+                </div>
+                <div class="citemDetails">
+                    <h2>Ashwagandha (Withania somnifera)</h2>
+                    <p>Uses - Stress relief, improving energy, enhancing overall vitality, boosting immunity, and improving cognitive function.</p>
+                    <p>Chemical Composition - Alkaloids (e.g., withanine), steroidal lactones (withanolides), saponins, iron, and amino acids.</p>
+                    <p>Places Found - Native to India, North Africa, and the Middle East; also cultivated in some parts of the USA.</p>
+                    <p>Medicinal Uses - Reduces cortisol levels, helping with stress and anxiety management.Improves physical endurance and muscle strength.</p>
+                    <a href="aswagandha.html"><button>View More</button></a>
+                </div>   
+            </div>
+            <div class="citem">
+              <div class="citemImage">
+                  <img src="images/tulsi.jpeg">
+              </div>
+              <div class="citemDetails">
+                <h2>Tulsi (Ocimum sanctum)</h2>
+                <p>Uses - Immunity booster, stress relief, improving respiratory health, and promoting skin health.</p>
+                <p>Chemical Composition - Essential oils (e.g., eugenol, camphor), flavonoids, rosmarinic acid, and various polyphenols.</p>
+                <p>Places Found - Widely cultivated in India, Southeast Asia, and tropical regions worldwide.</p>
+                <p>Medicinal Uses - Promotes respiratory health by easing congestion and cough.Helps reduce fever and acts as a natural immune booster.</p>
+                <a href="tulsi.html"><button>View More</button></a>
+                </div>
+          </div>
+          <div class="citem">
+              <div class="citemImage">
+                  <img src="images/ginger.png">
+              </div>
+              <div class="citemDetails">
+                <h2>Ginger</h2>
+                <p>Ginger is a flowering plant whose
+            rhizome, commonly known as ginger root, is widely used as a spice and
+            traditional medicine.</p><p> The plant grows to about 3 to 4 feet tall, with
+            narrow, lance-shaped leaves and yellow-green flowers. </p><p>The rhizome is
+            harvested for its pungent, aromatic properties.</p>
+                <a href="ginger.html"><button>View More</button></a>
+              </div>
+          </div>
+          <div class="citem">
+            <div class="citemImage">
+                <img src="images/neem.png">
+            </div>
+            <div class="citemDetails">
+              <h2>Neem, (Indian Lilac)</h2>
+              <p>Neem is a fast-growing tree native to
+                the Indian subcontinent, known for its broad, green leaves and
+                small, white flowers.</p><p> The seeds, leaves, and bark of the neem tree
+                are widely used in traditional medicine for their antibacterial,
+                antifungal, and anti-inflammatory properties.</p><p>Neem oil is especially
+                valued for its medicinal and insecticidal uses.</p>
+              <a href="neem.html"><button>View More</button></a>
+            </div>
+        </div>
+        <div class="citem">
+          <div class="citemImage">
+              <img src="images/aloevera.png">
+          </div>
+          <div class="citemDetails">
+            <h2>Aloe Vera(Ghritkumari)</h2>
+            <p> Aloe Vera is a succulent plant species known for its thick, fleshy leaves that contain a soothing gel.</p><p> The gel is widely used for its healing, moisturizing, and anti-inflammatory properties. </p><p>Aloe Vera is commonly grown in tropical climates and is a popular ingredient in skincare, health, and wellness products.</p>
+            <a href="aloevera.html"><button>View More</button></a>
+          </div>
+      </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer" id="footer">
+      <div class="frow">
+        <div class="fcolumn">
+          <div class="logo">
+            <h2>Medmind</h2>
+          </div>
+          <p>
+            Explore the world of medicinal plants and traditional healing
+            techniques, empowering your wellness journey with ancient
+            knowledge.
+          </p>
+        </div>
+        <div class="fcolumn">
+          <h3>
+            Address
+            <div class="underline"><span></span></div>
+          </h3>
+          <p class="email-id">
+            <i class="fa-regular fa-envelope"></i>&nbsp;sampathram@student.tce.edu
+          </p>
+        </div>
+        <div class="fcolumn">
+          <h3>
+            Quick Links
+            <div class="underline"><span></span></div>
+          </h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html">About US</a></li>
+            <li><a href="index.html">Contact Us</a></li>
+            <li><a href="index.html">Services</a></li>
+          </ul>
+        </div>
+        <div class="fcolumn">
+          <h3>
+            Contact Us
+            <div class="underline"><span></span></div>
+          </h3>
+          <p>+91-8946073509</p>
+        </div>
+      </div>
+      <hr />
+      <p class="copyright">
+        All Rights Reserved &nbsp;<i class="fa-regular fa-copyright"></i
+        >&nbsp; 2024
+      </p>
+    </div>
+    <script src="js/script.js"></script>
+    <script src="js/chatbot.js"></script>
+  </body>
+</html>

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Concert+One&family=Laila:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://getbootstrap.com/docs/5.3/assets/css/docs.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&family=Playwrite+CU:wght@100..400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link
+      href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css"
+      rel="stylesheet"
+    />
+    <title>Medmind</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js"></script>
+    <link rel="icon" href="logo/logo.jpg" />
+ 
+    <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/item.css" />
+    <link rel="stylesheet" href="css/chat-style.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "@google/generative-ai": "https://esm.run/@google/generative-ai"
+        }
+      }
+    </script>
+    <script type="module" src="js/chatbot.js"></script>
+    <script type="text/javascript" src="js/comment.js">
+
+    </script>
+    <script type="text/javascript" src="js/search.js">
+
+    </script>
+  </head>
+  <body>
+    <div class="header">
+      <nav>
+        <!-- Checkbox for toggling menu -->
+        <input type="checkbox" id="check">
+        <!-- Menu icon -->
+        <label for="check" class="checkbtn">
+          <i class="fas fa-bars"></i>
+        </label>
+
+        <label class="logo">Medmind</label>
+        
+        <img src="logo/logo.jpg" class="im">
+        <!-- Navigation links -->
+        <ul>
+          
+          <li><a class="active" href="index.html">Home</a></li>
+          <li><a href="index.html">ABOUT</a></li>
+          <li><a href="index.html">EXPLORE</a></li>
+          <li><a href="index.html">CONTACT</a></li>
+          <li><a href="index.html" >LOGIN</a></li>
+          <li><a href="index.html" >SIGNUP</a></li>
+          <li class="s1">
+                <input type="text" id="searchInput" placeholder="Search..." onkeyup="searchFunction()">
+                <ul id="searchResults"></ul>
+
+        </li>
+        </ul>
+
+      </nav>
+      <div style="background-color:#087a00;">
+      <a href="cart.html"
+      ><div id="bookmark"><i id="book" class="fa-regular fa-bookmark"></i></div
+    ></a>
+
+      </div>
+      </div>
+      <div class="nav2">
+        <a href="ayurveda.html" class="nav-link">Ayurveda</a>
+        <a href="yoga.html" class="nav-link" data-target="wrapper2">Yoga</a>
+        <a href="unani.html" class="nav-link" data-target="footer">Unani</a>
+        <a href="siddha.html" class="nav-link" data-target="wrapper4">Siddha</a>
+        <a href="allopathy.html" class="nav-link" data-target="wrapper4">Allopathy</a>
+      </div>
+    </div>
+    <div class="main">
+      <button class="chatbot-toggler">
+        <span class="material-symbols-outlined">
+          headset_mic
+          </span>
+        <span class="material-symbols-outlined">close</span>
+      </button>
+      <div class="chatbot">
+        <header>
+          <h2>Chatbot</h2>
+          <span class="close-btn material-symbols-outlined">close</span>
+        </header>
+        <ul class="chatbox">
+          <li class="chat incoming">
+            <span class="material-symbols-outlined">smart_toy</span>
+            <p>Hi there 👋<br>How can I help you today?</p>
+          </li>
+        </ul>
+        <div class="chat-input">
+          <textarea placeholder="Enter a message..." spellcheck="false" required></textarea>
+          <span id="send-btn" class="material-symbols-rounded">send</span>
+        </div>
+      </div>
+      <!--Chatbot End-->
+      <div class="item">
+        <div class="item-graphics">
+          <div class="item-media">
+            <div class="media-preview-column">
+              <div class="preview-item">
+                <img src="images/jujube unani.jpg" alt="Jujube Image 1" class="preview-image" onclick="showInLargeView('images/jujube unani.jpg', 'image', this)">
+              </div>
+              <div class="preview-item">
+                <img src="images/jujube unani.jpg" alt="Jujube Image 2" class="preview-image" onclick="showInLargeView('images/jujube unani.jpg', 'image', this)">
+              </div>
+              <div class="preview-item">
+                <video class="preview-video" onclick="showInLargeView('medias/jujube.mp4', 'video', this)">
+                  <source src="medias/jujube.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <div class="preview-item">
+                <img src="images/jujube unani.jpg" alt="Jujube 3D Model" class="preview-image" onclick="showInLargeView('3D Models/jujube.glb', '3dmodel', this)">
+              </div>
+            </div>
+      
+            <div class="media-large-view-column">
+              <div class="large-view-item" >
+                <div class="sketchfab-embed-wrapper"> <iframe id="large-view" auto-rotate
+                  camera-controls
+                  class="large-view-3dmodel" title="Jujube (NHMW-AFW-DING-0046-140)" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/267504c5f5a64d3b8eea2b35f418090d/embed?ui_infos=0"> </iframe> </div>
+              </div>
+            </div>
+          </div>
+          <div class="item-button">
+            <button id="b1" class="bookmarkbtn"><i class="fa-solid fa-bookmark"></i>&nbsp;&nbsp;Bookmark</button>
+            <a href="medias/JujubeArticle.pdf"><button id="download"><i class="fa-regular fa-circle-down"></i>&nbsp;&nbsp;Download Now</button></a>
+          </div>
+        </div>
+        <div class="item-details">
+          <div class="audio-container">
+            <audio id="audio-player" src="medias/jujube.mp3" controls></audio>
+          </div>
+          
+          <button id="comment-button">Leave a Comment</button>
+          <div id="comment-modal" class="modal">
+            <div class="modal-content">
+                <h3>Leave a Comment</h3>
+                <textarea id="comment-textarea" placeholder="Write your comment here..."></textarea>
+                <br>
+                <button id="submit-comment-btn" onclick="sendEmail(); reset(); return false;">Submit</button>
+            </div>
+          </div>
+          <p id="comment-success" class="success-message">Comment submitted & forwarded to admin for verification</p>
+      
+          <div class="item-name">Jujube</div>
+          <div class="item-botanical-name">
+            Botanical Name: Zizyphus sativa Linn.
+          </div>
+      
+          <div class="item-common-names">
+            <strong>Common Names:</strong> Jujube, Indian Date, Chinese Date, Ber (Hindi), Li (Chinese)
+          </div>
+      
+          <div class="item-family"><strong>Family:</strong> Rhamnaceae</div>
+      
+          <div class="item-description">
+            <strong>Description:</strong> Jujube is a small deciduous tree with oval-shaped fruits that can be eaten fresh or dried. It has been used in traditional medicine for its numerous health benefits, especially in Unani and Ayurvedic systems.
+          </div>
+      
+          <div class="item-medicinal-uses">
+            <strong>Medicinal Uses:</strong>
+            <ul>
+              <li>
+                <strong>Immunity Booster:</strong> Jujube is known for enhancing the immune system and preventing infections.
+              </li>
+              <li>
+                <strong>Stress Relief:</strong> Helps in reducing stress and improving sleep quality.
+              </li>
+              <li>
+                <strong>Digestive Health:</strong> Used in treating indigestion, constipation, and stomach ulcers.
+              </li>
+              <li>
+                <strong>Skin Health:</strong> Promotes healthy skin and is used in treating acne and skin irritations.
+              </li>
+              <li>
+                <strong>Liver Health:</strong> Known to detoxify and protect the liver.
+              </li>
+              <li>
+                <strong>Heart Health:</strong> Improves heart function and reduces the risk of cardiovascular diseases.
+              </li>
+            </ul>
+          </div>
+      
+          <div class="item-culinary-uses">
+            <strong>Culinary Uses:</strong>
+            <ul>
+              <li>
+                <strong>Fresh Fruits:</strong> Eaten raw or dried as a snack.
+              </li>
+              <li>
+                <strong>Jujube Syrup:</strong> Made into a syrup and used in beverages or as a natural sweetener.
+              </li>
+              <li>
+                <strong>Tea:</strong> Jujube leaves and fruits are used in making herbal teas.
+              </li>
+            </ul>
+          </div>
+      
+          <div class="item-habitat">
+            <strong>Places Where Found:</strong>
+            <p>
+              Native to South Asia, Jujube is widely cultivated in temperate and subtropical regions, particularly in China, India, and parts of the Mediterranean.
+            </p>
+          </div>
+      
+          <div class="item-history">
+            <strong>Cultural and Historical Significance:</strong>
+            <p>
+              Jujube has been a part of traditional Chinese medicine for centuries, and its use in Ayurvedic and Unani systems is also well documented.
+            </p>
+          </div>
+      
+          <div class="item-chemical-composition">
+            <strong>Chemical Composition:</strong>
+            <ul>
+              <li>
+                <strong>Saponins:</strong> Known for their anti-inflammatory and antioxidant properties.
+              </li>
+              <li>
+                <strong>Vitamin C:</strong> A potent antioxidant that boosts immunity and skin health.
+              </li>
+              <li>
+                <strong>Flavonoids:</strong> Offer anti-inflammatory and cardiovascular benefits.
+              </li>
+            </ul>
+          </div>
+      
+          <div class="item-usage">
+            <strong>How to Use:</strong>
+            <ul>
+              <li>
+                <strong>Fresh or Dried Fruits:</strong> Consumed as a snack or added to teas and herbal preparations.
+              </li>
+              <li>
+                <strong>Powdered Form:</strong> Used in Unani medicine for digestive health and stress relief.
+              </li>
+              <li>
+                <strong>Infusions:</strong> Jujube leaves can be used to make soothing infusions for sleep and relaxation.
+              </li>
+            </ul>
+          </div>
+          <button id="note-button">
+            <i class="fa-solid fa-note-sticky"></i>
+          </button>
+          <div id="note-modal" class="modal">
+            <div class="modal-content">
+              <h5>
+                Take your important Notes&nbsp;<i
+                  class="fa-regular fa-note-sticky"
+                ></i>
+              </h5>
+              <textarea id="note-textarea"></textarea>
+              <br />
+              <div class="note-button">
+                <button id="save-btn">
+                  <i class="fa-solid fa-check"></i>&nbsp;Save
+                </button>
+                <button id="discard-btn">
+                  <i class="fa-solid fa-xmark"></i>&nbsp;Discard
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="item-safety">
+            <strong>Safety and Side Effects:</strong>
+            <p>
+              Jujube is generally safe for consumption. However, excessive intake may cause digestive issues. Pregnant women and individuals with low blood pressure should consult a healthcare provider before using it in medicinal amounts.
+            </p>
+          </div>
+        </div>
+      </div>
+         
+      <div class="footer" id="footer">
+        <div class="frow">
+            <div class="fcolumn">
+                <div class="logo">
+                    <h2>Department Of Ayush</h2>
+                </div>
+                <p> Explore the world of medicinal plants and traditional healing techniques, empowering your wellness journey with ancient knowledge.</p>
+            </div>
+            <div class="fcolumn">
+                <h3>Address<div class="underline"><span></span></div></h3>
+                <p>Ministry of Ayush, Ayush Bhawan,</p>
+                <p> B Block, GPO Complex,</p>
+                <p>INA, New Delhi - 110023</p>
+                <p class="email-id"><i class="fa-regular fa-envelope"></i>&nbsp;support_ayush@gov.in</p>
+            </div>
+            <div class="fcolumn">
+                <h3>Quick Links <div class="underline"><span></span></div>
+                </h3>
+                <ul>
+                    <li><a href="">Home</a></li>
+                    <li><a href="">About US</a></li>
+                    <li><a href="">Contact Us</a></li>
+                    <li><a href="">Services</a></li>
+                </ul>
+            </div>
+            <div class="fcolumn">
+                <h3>Contact Us <div class="underline"><span></span></div>
+                </h3>
+                <p>+91-9331863389</p>
+                <p>+91-9230558682</p>
+            </div>
+        </div>
+        <hr>
+        <p class="copyright">All Rights Reserved &nbsp;<i class="fa-regular fa-copyright"></i>&nbsp;
+            2024</p>
+    </div>
+    </div>
+    <script>
+      function showInLargeView(source, type, element) {
+        var largeViewContainer = document.querySelector(".large-view-item");
+
+        // Clear the current content
+        largeViewContainer.innerHTML = "";
+
+        // Remove the 'selected' class from all preview items
+        var previewItems = document.querySelectorAll(".preview-item");
+        previewItems.forEach(function (item) {
+          item.classList.remove("selected");
+        });
+
+        // Add the 'selected' class to the clicked item
+        element.classList.add("selected");
+
+        if (type === "image") {
+          var imgElement = document.createElement("img");
+          imgElement.src = source;
+          imgElement.alt = "Large View";
+          imgElement.classList.add("large-view-image");
+          largeViewContainer.appendChild(imgElement);
+        } else if (type === "video") {
+          var videoElement = document.createElement("video");
+          videoElement.src = source;
+          videoElement.classList.add("large-view-video");
+          videoElement.setAttribute("controls", "controls");
+          largeViewContainer.appendChild(videoElement);
+          videoElement.play(); // Automatically start playing the video
+        } else if (type === "3dmodel") {
+          var modelViewer = document.createElement("model-viewer");
+          modelViewer.src = source;
+          modelViewer.alt = "3D model of Ginger";
+          modelViewer.autoRotate = true;
+          modelViewer.cameraControls = true;
+          modelViewer.classList.add("large-view-3dmodel");
+          largeViewContainer.appendChild(modelViewer);
+        }
+      }
+    </script>
+    <script src="js/item.js"></script>
+    <script src="js/chatbot.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
+    ></script>
+  </body>
+</html>

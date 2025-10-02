@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Concert+One&family=Laila:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://getbootstrap.com/docs/5.3/assets/css/docs.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&family=Playwrite+CU:wght@100..400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link
+      href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css"
+      rel="stylesheet"
+    />
+    <title>Medmind</title>
+    <link rel="icon" href="logo/logo.jpg" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/chat-style.css">
+    <link rel="stylesheet" href="css/item.css">
+    <script type="importmap">
+      {
+        "imports": {
+          "@google/generative-ai": "https://esm.run/@google/generative-ai"
+        }
+      }
+    </script>
+    <script type="module" src="js/chatbot.js"></script>
+      <script type="text/js" src="js/search.js"></script>
+      <script type="text/js" src="js/script.js"></script>
+      <script type="text/javascript" src="js/comment.js">
+
+      </script>
+  </head>
+  <style>
+    .container{
+        min-height: 100vh;
+        height: auto;
+    }
+    #bookmarks-container{
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        max-width: 1200px;
+        margin: 12px auto;
+        background-color: #fff;
+    }
+    .citem{
+        display: flex;
+        width: 90%;
+        max-width: 1000px;
+        background-color: #e5e6e2;
+        margin: 16px auto;
+        padding: 12px;
+        border-radius: 6px;
+        transition: all ease 0.5s;
+    }
+    .citem:hover{
+        background-color: #213500;
+        color: #fff;
+    }
+    .citemImage{
+        width: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .citemImage img{
+        width: 100%;
+    }
+    .citemDetails{
+        width: calc(100% - 250px);
+        padding: 12px;
+        font-size: medium;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .citem button{
+        border: none;
+        outline: none;
+        border-radius: 6px;
+        background-color: #588f00;
+        color: #fff;
+        padding: 6px 12px;
+    }
+    #clearFilterBtn {
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    width: 100%;
+    border-radius: 6px;
+    font-size: larger;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  #clearFilterBtn:hover {
+    background-color: #cc0000; /* Slightly darker on hover */
+  }
+    .details{
+        display: flex;
+        padding: 0 10px;
+    }
+    .citemDetails p{
+        max-width: 98%;
+        padding: 0;
+        margin: 0;
+        margin-bottom: 4px;
+        font-weight: 500;
+        text-overflow: ellipsis;
+    }
+    .filter{
+        width:400px;
+        margin: 12px;
+        margin-left: 0;
+        padding: 10px;
+        background-color: #fff;
+        color: #131f00;
+        font-family:"SUSE", sans-serif;
+    }
+    .fh{
+        font-size: larger;
+    }
+    .filter-section{
+        margin: 18px 0;
+    }
+    .filter-section p{
+        margin-bottom: 6px;
+        font-size: large;
+        font-weight: 600;
+    }
+    .filter button{
+        border: none;
+        background-color: #213500;
+        color: #fff;
+        padding: 6px 12px;
+        width: 100%;
+        border-radius: 6px;
+        font-size: larger;
+    }
+    /* Style individual search result items */
+#searchResults li {
+    padding: 10px;
+    font-size: 16px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Highlight the search result titles */
+#searchResults li a {
+    text-decoration: none;
+    color: #007BFF; /* Blue color for the links */
+    font-weight: bold;
+}
+
+/* Change color of links on hover */
+#searchResults li a:hover {
+    color: #0056b3;
+}
+
+/* Style the "No results found" message */
+#searchResults li.no-results {
+    color: #999;
+    font-style: italic;
+    padding: 10px;
+}
+
+  </style>
+  <body>
+    <div class="header">
+      <nav>
+        <!-- Checkbox for toggling menu -->
+        <input type="checkbox" id="check">
+        <!-- Menu icon -->
+        <label for="check" class="checkbtn">
+          <i class="fas fa-bars"></i>
+        </label>
+
+        <label class="logo">Medmind</label>
+        
+        <img src="logo/logo.jpg" class="im">
+        <!-- Navigation links -->
+        <ul>
+          
+          <li><a class="active" href="index.html">Home</a></li>
+          <li><a href="index.html">ABOUT</a></li>
+          <li><a href="index.html">EXPLORE</a></li>
+          <li><a href="index.html">CONTACT</a></li>
+          <li><a href="index.html" >LOGIN</a></li>
+          <li><a href="index.html" >SIGNUP</a></li>
+          <li class="s1">
+            <input type="text" id="search-input" placeholder="Search..." oninput="searchFunction()">
+                <ul id="searchResults"></ul>
+
+        </li>
+        </ul>
+
+      </nav>
+      <div style="background-color:#087a00;">
+      <a href="cart.html"
+      ><div id="bookmark"><i id="book" class="fa-regular fa-bookmark"></i></div
+    ></a>
+
+      </div>
+      </div>
+      <div class="nav2">
+        <a href="ayurveda.html" class="nav-link">Ayurveda</a>
+        <a href="yoga.html" class="nav-link" data-target="wrapper2">Yoga</a>
+        <a href="unani.html" class="nav-link" data-target="footer">Unani</a>
+        <a href="siddha.html" class="nav-link" data-target="wrapper4">Siddha</a>
+        <a href="allopathy.html" class="nav-link" data-target="wrapper4">Allopathy</a>
+      </div>
+    </div>
+    <div class="container">
+      <button class="chatbot-toggler">
+        <span class="material-symbols-outlined">
+          headset_mic
+          </span>
+        <span class="material-symbols-outlined">close</span>
+      </button>
+      <div class="chatbot">
+        <header>
+          <h2>Chatbot</h2>
+          <span class="close-btn material-symbols-outlined">close</span>
+        </header>
+        <ul class="chatbox">
+          <li class="chat incoming">
+            <span class="material-symbols-outlined">smart_toy</span>
+            <p>Hi there 👋<br>How can I help you today?</p>
+          </li>
+        </ul>
+        <div class="chat-input">
+          <textarea placeholder="Enter a message..." spellcheck="false" required></textarea>
+          <span id="send-btn" class="material-symbols-rounded">send</span>
+        </div>
+      </div>
+      <!--Chatbot End-->
+      <div class="details">
+        <div class="filter">
+            <strong class="fh">Filter Medicines by Allopathy&nbsp;<i class="fa-solid fa-filter"></i></strong>
+          <!-- Filter by Active Ingredient -->
+<div class="filter-section">
+  <p>By Active Ingredient</p>
+  <label><input type="checkbox" class="filter-active-ingredient" value="amoxicillin"> Amoxicillin</label>
+  <label><input type="checkbox" class="filter-active-ingredient" value="ampicillin"> Ampicillin</label>
+  <label><input type="checkbox" class="filter-active-ingredient" value="centrizine"> Cetirizine</label>
+  <label><input type="checkbox" class="filter-active-ingredient" value="cefixime"> Cefixime</label>
+  <label><input type="checkbox" class="filter-active-ingredient" value="paracetamol"> Paracetamol</label>
+</div>
+
+<!-- Filter by Dosage -->
+<div class="filter-section">
+  <p>By Dosage</p>
+  <label><input type="checkbox" class="filter-dosage" value="250mg"> 250mg</label>
+  <label><input type="checkbox" class="filter-dosage" value="500mg"> 500mg</label>
+  <label><input type="checkbox" class="filter-dosage" value="1g"> 1g</label>
+</div>
+
+<!-- Filter by Form -->
+<div class="filter-section">
+  <p>By Form</p>
+  <label><input type="checkbox" class="filter-form" value="tablet"> Tablet</label>
+  <label><input type="checkbox" class="filter-form" value="capsule"> Capsule</label>
+  <label><input type="checkbox" class="filter-form" value="syrup"> Syrup</label>
+  <label><input type="checkbox" class="filter-form" value="suspension"> Suspension</label>
+</div>
+
+<!-- Filter by Usage -->
+<div class="filter-section">
+  <p>By Usage</p>
+  <label><input type="checkbox" class="filter-usage" value="antibiotic"> Antibiotic</label>
+  <label><input type="checkbox" class="filter-usage" value="antihistamine"> Antihistamine</label>
+  <label><input type="checkbox" class="filter-usage" value="pain-reliever"> Pain Reliever</label>
+</div>
+
+<div class="filter-section">
+  <p>By Type</p>
+  <label><input type="checkbox" class="filter-type" value="antibiotic"> Antibiotic</label>
+  <label><input type="checkbox" class="filter-type" value="antihistamine"> Antihistamine</label>
+  <label><input type="checkbox" class="filter-type" value="analgesic"> Analgesic</label>
+</div>
+
+          
+            <!-- Apply Filter Button -->
+            <button id="applyFilterBtn">Apply Filters</button><br><br> 
+            <button id="clearFilterBtn" class="clearFilterBtn">Clear Filters</button>
+          </div>
+          
+        <div id="bookmarks-container">
+            <div class="citem" data-active-ingredient="amoxicillin" 
+            data-dosage="1g" 
+            data-form="tablet" 
+            data-type="antibiotic">
+                <div class="citemImage">
+                    <img src="images/amoxicillin.jpg">
+                </div>
+                <div class="citemDetails">
+                    <h2>Amoxicillin</h2>
+                    <p>Amoxicillin is a widely used broad-spectrum antibiotic that belongs to the penicillin class. </p><p>It is effective against a range of bacterial infections by inhibiting bacterial cell wall synthesis.</p>
+                    <a href="amoxicilin.html"><button>View More</button></a>
+                </div>   
+            </div>
+            <div class="citem" data-active-ingredient="ampicillin" 
+            data-dosage="500mg" 
+            data-form="capsule" 
+            data-type="antibiotic">
+              <div class="citemImage">
+                  <img src="images/ampicillin.jpg">
+              </div>
+              <div class="citemDetails">
+                <h2>Ampicillin</h2>
+                <p>Ampicillin is a broad-spectrum beta-lactam antibiotic belonging to the penicillin class.</p><p> It is widely used to treat a variety of bacterial infections by inhibiting bacterial cell wall synthesis.</p>
+                <a href="ampicillin.html"><button>View More</button></a>
+                </div>
+          </div>
+          <div class="citem" data-form="tablet" 
+          data-type="antihistamine" data-active-ingredient="cefixime" 
+          data-dosage="250mg" 
+          data-form="capsule" 
+          data-type="antibiotic">
+              <div class="citemImage">
+                  <img src="images/cefixime.jpg">
+              </div>
+              <div class="citemDetails">
+                <h2>Cefixime</h2>
+                <p>Cefixime is a broad-spectrum third-generation cephalosporin antibiotic used to treat bacterial infections by inhibiting bacterial cell wall synthesis.</p>
+                <a href="cefixime.html"><button>View More</button></a>
+              </div>
+          </div>
+          <div class="citem" data-active-ingredient="cetirizine" 
+         
+          data-form="tablet" 
+          data-type="antihistamine"
+          data-dosage="250mg" 
+          data-form="capsule" >
+            <div class="citemImage">
+                <img src="images/cetirizine.jpg">
+            </div>
+            <div class="citemDetails">
+              <h2>Cetirizine</h2>
+              <p>Cetirizine is a second-generation antihistamine widely used to relieve allergy symptoms.</p><p> It works by blocking histamine, a substance produced during allergic reactions.</p>
+              <a href="citrizine.html"><button>View More</button></a>
+            </div>
+        </div>
+        <div class="citem" data-active-ingredient="paracetamol" 
+        data-dosage="500mg" 
+        data-form="tablet" 
+        data-type="analgesic">
+          <div class="citemImage">
+              <img src="images/paracetamol.jpg">
+          </div>
+          <div class="citemDetails">
+            <h2>Paracetamol</h2>
+            <p>Paracetamol is a widely used over-the-counter medicine for pain relief and fever reduction. </p><p>It is a non-opioid analgesic and antipyretic with minimal anti-inflammatory effects.</p>
+            <a href="paracetomal.html"><button>View More</button></a>
+          </div>
+      </div>
+        </div>
+      </div>
+    </div>
+    <script>
+    const pages = [
+    { title: "Allopathy", url: "allopathy.html" },
+    { title: "Aloe Vera", url: "aloevera.html" },
+    { title: "Amoxicillin", url: "amoxicilin.html" },
+    { title: "Ampicillin", url: "ampicillin.html" },
+    { title: "Ashwagandha", url: "aswagandha.html" },
+    { title: "Ayurveda", url: "ayurveda.html" },
+    { title: "Bakthi Yoga", url: "bakthiyoga.html" },
+    { title: "Cart", url: "cart.html" },
+    { title: "Cefixime", url: "cefixime.html" },
+    { title: "Citrizine", url: "citrizine.html" },
+    { title: "Cow's Tongue", url: "cowunnani.html" },
+    { title: "Ginger", url: "ginger.html" },
+    { title: "Jnana Yoga", url: "jnanayoga.html" },
+    { title: "Jujube ", url: "jujbeunnani.html" },
+    { title: "Karma Yoga", url: "karmayoga.html" },
+    { title: "Liquorice ", url: "liquoriceunnani.html" },
+    { title: "Madder ", url: "maddersiddha.html" },
+    { title: "Marshmallow ", url: "marshmallowunnani.html" },
+    { title: "Nathai suri ", url: "nathaisoorisiddha.html" },
+    { title: "Neem", url: "neem.html" },
+    { title: "Paracetamol", url: "paracetomal.html" },
+    { title: "Pirandai ", url: "pirandaisiiddha.html" },
+    { title: "Power Yoga", url: "poweryoga.html" },
+    { title: "Sebesten ", url: "sebestenunnai.html" },
+    { title: "Seenthil ", url: "seenthilsiddha.html" },
+    { title: "Siddha", url: "siddha.html" },
+    { title: "Thanner Vittan Kilangu", url: "thannervittansiddha.html" },
+    { title: "Tulsi", url: "tulsi.html" },
+    { title: "Unani", url: "unani.html" },
+    { title: "Yoga", url: "yoga.html" },
+    { title: "Yin Yoga", url: "yinyoga.html" }
+];
+
+// Function to handle search input
+function searchFunction() {
+    // Get the search query from the input field
+    const query = document.getElementById('search-input').value.toLowerCase();
+
+    // Get the element where search results will be displayed
+    const searchResults = document.getElementById('searchResults');
+
+    // Clear previous results
+    searchResults.innerHTML = '';
+
+    // If the query is not empty, perform the search
+    if (query.trim() !== '') {
+        // Filter the pages array based on the search query
+        const filteredPages = pages.filter(page => page.title.toLowerCase().includes(query));
+
+        // Display the filtered pages
+        if (filteredPages.length > 0) {
+            filteredPages.forEach(page => {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `<a href="${page.url}">${page.title}</a>`;
+                searchResults.appendChild(listItem);
+            });
+        } else {
+            // If no results found, display a message
+            searchResults.innerHTML = '<li class="no-results">No results found</li>';
+        }
+    }
+}
+    // Add event listener to Apply Filters button
+      // Add event listener to Apply Filters button
+document.querySelector('#applyFilterBtn').addEventListener('click', () => {
+    filterItems();
+});
+
+function filterItems() {
+    const filters = {
+        "active-ingredient": getSelectedValues('.filter-active-ingredient'),
+        "dosage": getSelectedValues('.filter-dosage'),
+        "form": getSelectedValues('.filter-form'),
+        "type": getSelectedValues('.filter-type'),
+    };
+
+    document.querySelectorAll('.citem').forEach((item) => {
+        let show = true;
+
+        // Check if item matches all the selected filters
+        for (const [filter, values] of Object.entries(filters)) {
+            if (values.length > 0) {
+                const itemValue = item.getAttribute(`data-${filter}`);
+                if (!values.includes(itemValue)) {
+                    show = false;
+                    break;
+                }
+            }
+        }
+
+        // Display item based on whether it matches filters
+        item.style.display = show ? 'block' : 'none';
+    });
+}
+
+function getSelectedValues(selector) {
+    return Array.from(document.querySelectorAll(selector))
+                .filter(checkbox => checkbox.checked)
+                .map(checkbox => checkbox.value);
+}
+
+// Function to clear filters
+document.getElementById('clearFilterBtn').addEventListener('click', function () {
+  // Reset all filter checkboxes to unchecked state
+  document.querySelectorAll('.filter input[type="checkbox"]').forEach(checkbox => {
+    checkbox.checked = false;
+  });
+
+  // Show all items after clearing filters
+  const items = document.querySelectorAll('.citem');
+  items.forEach(item => {
+    item.style.display = 'flex'; // Make all items visible
+  });
+});
+
+      
+            // Function to clear filters
+document.getElementById('clearFilterBtn').addEventListener('click', function () {
+  // Reset all filter checkboxes to unchecked state
+  document.querySelectorAll('.filter input[type="checkbox"]').forEach(checkbox => {
+    checkbox.checked = false;
+  });
+
+  // Show all items after clearing filters
+  const items = document.querySelectorAll('.citem');
+  items.forEach(item => {
+    item.style.display = 'flex'; // Make all items visible
+  });
+});
+      </script>
+    <div class="footer" id="footer">
+      <div class="frow">
+        <div class="fcolumn">
+          <div class="logo">
+            <h2>Medmind</h2>
+          </div>
+          <p>
+            Explore the world of medicinal plants and traditional healing
+            techniques, empowering your wellness journey with ancient
+            knowledge.
+          </p>
+        </div>
+        <div class="fcolumn">
+          <h3>
+            Address
+            <div class="underline"><span></span></div>
+          </h3>
+          <p class="email-id">
+            <i class="fa-regular fa-envelope"></i>&nbsp;sampathram@student.tce.edu
+          </p>
+        </div>
+        <div class="fcolumn">
+          <h3>
+            Quick Links
+            <div class="underline"><span></span></div>
+          </h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html">About US</a></li>
+            <li><a href="index.html">Contact Us</a></li>
+            <li><a href="index.html">Services</a></li>
+            
+          </ul>
+        </div>
+        <div class="fcolumn">
+          <h3>
+            Contact Us
+            <div class="underline"><span></span></div>
+          </h3>
+          <p>+91-8946073509</p>
+        </div>
+      </div>
+      <hr />
+      <p class="copyright">
+        All Rights Reserved &nbsp;<i class="fa-regular fa-copyright"></i
+        >&nbsp; 2024
+      </p>
+    </div>
+   
+
+  </body>
+</html>

@@ -1,0 +1,104 @@
+/* Popup content styling */
+.popup-content {
+    position: relative;
+    text-align: center;
+    background-image: url('../images/clover.jpg');
+   
+    background-size: cover;
+    width: 700px;
+    color: #fff;
+    flex-wrap: wrap;
+    padding: 75px;
+    transform: translateY(-50px); /* Initially positioned above the screen */
+    opacity: 0; /* Initially hidden */
+    transition: transform 0.5s ease, opacity 0.5s ease; /* Animation for dropdown effect */
+}
+
+/* Popup overlay styling */
+.popup-overlay {
+    padding-top: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px); /* Translucent black backdrop */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999; /* Ensure it appears above everything else */
+    visibility: visible; /* Initially visible */
+    opacity: 1; /* Fully visible */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Hidden state for popup */
+.popup-overlay.hidden {
+    visibility: hidden;
+    opacity: 0; /* Fully transparent */
+}
+
+/* When the popup is shown, apply the dropdown animation */
+.popup-overlay.show .popup-content {
+    transform: translateY(0); /* Slide the popup into view */
+    opacity: 1; /* Make it fully visible */
+}
+
+/* Button styling */
+.popup-buttons button {
+    flex: 1;
+    width: 150px;
+    height: 49px;
+    border: none;
+    outline: none;
+    border-radius: 48px;
+    cursor: pointer;
+    background-color: #d7e41d;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 10px 0;
+    transition: all 0.5s;
+    font-size: medium;
+}
+
+/* Button hover effect */
+.popup-buttons button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.welch {
+    flex: 2;
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+    .popup-content {
+        width: 90%; /* Make the popup content take up 90% of the screen width */
+        padding: 50px; /* Adjust padding for smaller screens */
+    }
+
+    .popup-buttons button {
+        width: 120px; /* Reduce button size */
+        height: 45px; /* Reduce button height */
+        font-size: 14px; /* Adjust button text size */
+    }
+}
+
+@media (max-width: 480px) {
+    .popup-content {
+        width: 100%; /* Take up full width on very small screens */
+        padding: 30px; /* Further reduce padding */
+    }
+
+    .popup-buttons button {
+        width: 100%; /* Make buttons take up full width */
+        height: 40px; /* Smaller height */
+        font-size: 16px; /* Adjust font size */
+    }
+
+    .welch {
+        flex: 1; /* Adjust the layout of the buttons */
+    }
+}

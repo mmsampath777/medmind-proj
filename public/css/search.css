@@ -1,0 +1,78 @@
+
+.s1>input
+{
+    border-radius: 8px;
+    padding: 10px;
+    color: black;
+    border: none;
+    box-shadow: -5px 5px 10px 0.8px  rgba(151, 141, 141,0.8);
+    transition: 0.5s ease;
+    opacity: 1;
+    background-color: Snow;
+    height: 50px;
+
+    
+
+}
+.s1>input::placeholder
+{
+    color: rgb(21, 158, 37);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+}
+.s1>input:hover
+{
+    box-shadow: -5px 5px 10px 1px  rgba(151, 141, 141,1);
+}
+.s1>input:focus
+
+{
+    border: none;
+    outline: none;
+}
+.s2>button
+{
+ 
+    border-radius: 50%;
+    background-color: #017d31;
+    color: rgb(246, 222, 7);
+    width: 40px;
+    padding: 10px;
+    transition: 0.5s ease;
+    outline: none;
+    border: none
+    ;
+
+}
+.s2>button:hover{
+    transform: rotateY(180deg);
+}
+        #searchResults {
+    list-style-type: none;
+    padding: 0;
+    max-width: 300px;
+    
+}
+
+/* Search results dropdown */
+#searchResults {
+    position: relative;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    width: 200px;
+    max-height: 80px;
+    overflow-y: auto;
+    z-index: 1;/* Hidden by default */
+}
+
+#searchResults li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+#searchResults li:hover {
+    background-color: #f0f0f0;
+}
