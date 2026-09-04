@@ -1,5 +1,5 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
-      const genAI = new GoogleGenerativeAI("AIzaSyA4-gVBF95vhpbkcjEVQgxd1VsS1YnvhJE");
+      const genAI = new GoogleGenerativeAI(process.env.GEMINI_API);
       const chatbotToggler = document.querySelector(".chatbot-toggler");
       const closeBtn = document.querySelector(".close-btn");
       const chatbox = document.querySelector(".chatbox");
